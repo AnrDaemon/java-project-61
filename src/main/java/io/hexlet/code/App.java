@@ -2,7 +2,7 @@ package io.hexlet.code;
 
 public class App {
     public String getGreeting() {
-        return "Hello World!";
+        return "Welcome to the Brain Games!";
     }
 
     public static void main(String[] args) {
