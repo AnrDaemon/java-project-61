@@ -30,7 +30,27 @@ public class App {
     }
 
     public String getSelectionPrompt() {
-        return "Please select your game:";
+        return "Please choose a game:";
+    }
+
+    public String getCorrectAnswerMessage() {
+        return "Correct!";
+    }
+
+    /** Provide a "wrong answer" template
+     *
+     * @return
+     */
+    public String getWrongAnswerMessage() {
+        return "'%2$s' is a wrong answer ;(. Correct answer was '%1$s'.";
+    }
+
+    public String getWinnerMessage() {
+        return "Congratulations, %s! Wanna play again?";
+    }
+
+    public String getLoserMessage() {
+        return "My condolence, but you lose. Good bye!";
     }
 
     public void run() {
@@ -40,7 +60,15 @@ public class App {
 
         int n = 1;
         while (n > 0) {
-            games.get(n).play(this);
+            Boolean result = games.get(n).play(this);
+            if (result != null) {
+                if (result) {
+                    Cli.println(this.getWinnerMessage(), this.getUserName());
+                } else {
+                    Cli.println(this.getLoserMessage(), this.getUserName());
+                    return;
+                }
+            }
 
             int length = games.size();
             for (int i = 1; i < length; i++) {

@@ -13,7 +13,7 @@ public class Greeting implements GameInterface {
     }
 
     @Override
-    public void play(App app) {
+    public Boolean play(App app) {
         Cli.println(app.getGreeting(), app.getUserName());
         String userName = Cli.read(app.getNameRequest());
         if (userName.length() > 0) {
@@ -23,6 +23,8 @@ public class Greeting implements GameInterface {
         }
 
         Cli.println(app.getWelcomeString(), app.getUserName());
+
+        return null;
     }
 
     @Override

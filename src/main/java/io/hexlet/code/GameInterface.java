@@ -4,7 +4,7 @@ public interface GameInterface {
 
     public String getName();
 
-    public void play(App app);
+    public Boolean play(App app);
 
     public int getGames();
 
