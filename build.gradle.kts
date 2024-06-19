@@ -28,7 +28,8 @@ repositories {
 }
 
 dependencies {
-    // Place for your dependencies
+    // https://mvnrepository.com/artifact/org.apache.commons/commons-lang3
+    implementation("org.apache.commons:commons-lang3:3.14.0")
 }
 
 application {
@@ -45,7 +46,8 @@ testing {
 
             dependencies {
                 implementation("junit:junit:4.13.2")
-                runtimeOnly("org.junit.vintage:junit-vintage-engine:5.8.2")
+                runtimeOnly("org.junit.vintage:junit-vintage-engine:5.11.0-M2")
+                // runtimeOnly("org.junit.platform:junit-platform-launcher")
             }
         }
     }
@@ -66,4 +68,8 @@ tasks.test {
     testLogging {
         events("PASSED", "FAILED", "SKIPPED")
     }
+}
+
+tasks.run.configure {
+    standardInput = System.`in`
 }
