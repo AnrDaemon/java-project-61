@@ -69,3 +69,7 @@ tasks.test {
         events("PASSED", "FAILED", "SKIPPED")
     }
 }
+
+tasks.run.configure {
+    standardInput = System.`in`
+}

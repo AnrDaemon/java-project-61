@@ -32,3 +32,6 @@ indent_size = 4
 [{package.json,tsconfig.json}]
 indent_style = space
 insert_final_newline = ignore
+
+[*.{yaml,yml}]
+indent_size = 4
