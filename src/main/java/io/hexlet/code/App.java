@@ -5,7 +5,15 @@ public class App {
         return "Welcome to the Brain Games!";
     }
 
+    public String getNameRequest() {
+        return "May I have your name? ";
+    }
+
+    public String getWelcomeString(String userName) {
+        return "Hello, " + userName + "!";
+    }
+
     public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+        Cli.greeting(new App());
     }
 }
