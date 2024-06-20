@@ -37,12 +37,13 @@ public class App {
         return "Correct!";
     }
 
-    /** Provide a "wrong answer" template
+    /**
+     * Provides a "wrong answer" reply template
      *
      * @return
      */
     public String getWrongAnswerMessage() {
-        return "'%2$s' is a wrong answer ;(. Correct answer was '%1$s'.";
+        return "'%s' was a wrong answer :`(. Correct answer was '%s'.";
     }
 
     public String getWinnerMessage() {
@@ -57,6 +58,7 @@ public class App {
         games = new HashMap<Integer, GameInterface>();
         games.put(0, null);
         games.put(1, new Greeting());
+        games.put(2, new EvenOdd());
 
         int n = 1;
         while (n > 0) {
