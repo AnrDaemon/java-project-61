@@ -4,3 +4,7 @@
 ### CodeClimate status:
 
 <a href="https://codeclimate.com/github/AnrDaemon/java-project-61/maintainability"><img src="https://api.codeclimate.com/v1/badges/b729cd22c95afd75ed94/maintainability" /></a>
+
+## Game replays
+
+### [EvenOdd (#5)](https://asciinema.org/a/R02RLsxcJ6WdlEaK7oPwltQFQ)
