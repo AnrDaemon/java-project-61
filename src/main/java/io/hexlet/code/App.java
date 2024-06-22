@@ -4,6 +4,7 @@ import io.hexlet.code.games.Calculator;
 import io.hexlet.code.games.EvenOdd;
 import io.hexlet.code.games.GCD;
 import io.hexlet.code.games.Greeting;
+import io.hexlet.code.games.Progression;
 
 public class App {
 
@@ -64,6 +65,7 @@ public class App {
         games.register(new EvenOdd(this));
         games.register(new Calculator(this));
         games.register(new GCD(this));
+        games.register(new Progression(this));
 
         Cli.println(this.getGreeting(), this.getUserName());
 
