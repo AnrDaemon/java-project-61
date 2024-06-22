@@ -1,13 +1,12 @@
 package io.hexlet.code;
 
-import java.util.HashMap;
-import java.util.Map;
+import io.hexlet.code.games.Calculator;
+import io.hexlet.code.games.EvenOdd;
+import io.hexlet.code.games.Greeting;
 
 public class App {
 
     private String userName = "stranger";
-
-    private Map<Integer, GameInterface> games;
 
     public void setUserName(String userName) {
         this.userName = userName;
@@ -19,6 +18,10 @@ public class App {
 
     public String getGreeting() {
         return "Welcome to the Brain Games, %s!";
+    }
+
+    public String getParting() {
+        return "Goodbye, %s! Until we meet again…";
     }
 
     public String getNameRequest() {
@@ -55,14 +58,16 @@ public class App {
     }
 
     public void run() {
-        games = new HashMap<Integer, GameInterface>();
-        games.put(0, null);
-        games.put(1, new Greeting());
-        games.put(2, new EvenOdd());
+        final Engine games = new Engine(this);
+        games.register(new Greeting(this));
+        games.register(new EvenOdd(this));
+        games.register(new Calculator(this));
+
+        Cli.println(this.getGreeting(), this.getUserName());
 
         int n = 1;
         while (n > 0) {
-            Boolean result = games.get(n).play(this);
+            Boolean result = games.play(n);
             if (result != null) {
                 if (result) {
                     Cli.println(this.getWinnerMessage(), this.getUserName());
@@ -72,14 +77,15 @@ public class App {
                 }
             }
 
-            int length = games.size();
-            for (int i = 1; i < length; i++) {
-                Cli.println("%d. %s", i, games.get(i).getName());
+            for (GameTitle g : games) {
+                Cli.println("%d. %s", g.idx, g.title);
             }
 
             Cli.println("%d. %s", 0, "Exit");
             n = Integer.parseInt(Cli.read(this.getSelectionPrompt()));
         }
+
+        Cli.println(getParting(), this.getUserName());
     }
 
     public static void main(String[] args) {

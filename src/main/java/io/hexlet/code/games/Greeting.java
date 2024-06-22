@@ -1,11 +1,19 @@
-package io.hexlet.code;
+package io.hexlet.code.games;
+
+import io.hexlet.code.App;
+import io.hexlet.code.Cli;
+import io.hexlet.code.GameInterface;
+import io.hexlet.code.GameRound;
 
 public class Greeting implements GameInterface {
 
     private final String name = "Introduction";
 
-    private int games = 0;
-    private int score = 0;
+    private App app;
+
+    public Greeting(App app) {
+        this.app = app;
+    }
 
     @Override
     public String getName() {
@@ -13,8 +21,12 @@ public class Greeting implements GameInterface {
     }
 
     @Override
-    public Boolean play(App app) {
-        Cli.println(app.getGreeting(), app.getUserName());
+    public String getRules() {
+        return null;
+    }
+
+    @Override
+    public GameRound play() {
         String userName = Cli.read(app.getNameRequest());
         if (userName.length() > 0) {
             app.setUserName(userName);
@@ -27,13 +39,4 @@ public class Greeting implements GameInterface {
         return null;
     }
 
-    @Override
-    public int getGames() {
-        return this.games;
-    }
-
-    @Override
-    public int getScore() {
-        return this.score;
-    }
 }
