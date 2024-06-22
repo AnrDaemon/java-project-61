@@ -1,5 +1,6 @@
 package io.hexlet.code;
 
+import io.hexlet.code.games.Calculator;
 import io.hexlet.code.games.EvenOdd;
 import io.hexlet.code.games.Greeting;
 
@@ -17,6 +18,10 @@ public class App {
 
     public String getGreeting() {
         return "Welcome to the Brain Games, %s!";
+    }
+
+    public String getParting() {
+        return "Goodbye, %s! Until we meet again…";
     }
 
     public String getNameRequest() {
@@ -56,6 +61,9 @@ public class App {
         final Engine games = new Engine(this);
         games.register(new Greeting(this));
         games.register(new EvenOdd(this));
+        games.register(new Calculator(this));
+
+        Cli.println(this.getGreeting(), this.getUserName());
 
         int n = 1;
         while (n > 0) {
@@ -69,18 +77,19 @@ public class App {
                 }
             }
 
-            for (GameTitle g: games) {
+            for (GameTitle g : games) {
                 Cli.println("%d. %s", g.idx, g.title);
             }
 
             Cli.println("%d. %s", 0, "Exit");
             n = Integer.parseInt(Cli.read(this.getSelectionPrompt()));
         }
+
+        Cli.println(getParting(), this.getUserName());
     }
 
     public static void main(String[] args) {
         App app = new App();
-        Cli.println(app.getGreeting(), app.getUserName());
         app.run();
     }
 }
