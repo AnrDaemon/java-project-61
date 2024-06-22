@@ -10,3 +10,4 @@
   - [Calculator (#6)](https://asciinema.org/a/0p27Ru3x4Ko6wfPu4strMAmuy)
   - [GCD (#7)](https://asciinema.org/a/puNSQzId9KeG0CApFLcZsPoZo)
   - [Progression (#8)](https://asciinema.org/a/FoB83oRdNkOp2dURoqo0RaNyB)
+  - [Primes (#9)](https://asciinema.org/a/kDoIoOk93GFr0JaJHt9o3f1Xp)
