@@ -2,7 +2,6 @@ package io.hexlet.code.games;
 
 import java.util.Random;
 
-import io.hexlet.code.App;
 import io.hexlet.code.GameInterface;
 import io.hexlet.code.GameRound;
 
@@ -12,7 +11,7 @@ public class Progression implements GameInterface {
 
     private Random rand;
 
-    public Progression(App app) {
+    public Progression() {
         this.rand = new Random();
     }
 

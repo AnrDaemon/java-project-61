@@ -3,14 +3,13 @@ package io.hexlet.code;
 import java.util.HashMap;
 import java.util.Iterator;
 
-public class Engine implements Iterable<GameTitle> {
+import io.hexlet.code.games.Greeting;
 
-    private App app;
+public class Engine implements Iterable<GameTitle> {
 
     private HashMap<Integer, GameInterface> games;
 
-    public Engine(App app) {
-        this.app = app;
+    public Engine() {
         this.games = new HashMap<Integer, GameInterface>();
         this.games.put(0, null);
     }
@@ -31,28 +30,37 @@ public class Engine implements Iterable<GameTitle> {
             Cli.println("%s", rules);
         }
 
+        if (game instanceof Greeting) {
+            // Introduction game
+            return this.greet((Greeting) game);
+        }
+
         for (int i = 0; i < 3; i++) {
             final GameRound round = game.play();
-            if (round == null) {
-                return null;
-            }
-            if (round.getAnswer() == null) {
-                Cli.println("%s", round.getQuestion());
-                return null;
-            }
-
-            Cli.println("Question: %s", round.getQuestion());
-            String r = Cli.read("Answer:");
+            Cli.println(LocaleStrings.roundQuestion, round.getQuestion());
+            String r = Cli.read(LocaleStrings.roundAnswer);
             if (round.getAnswer().equals(r)) {
-                Cli.println(app.getCorrectAnswerMessage());
+                Cli.println(LocaleStrings.correctAnswerMessage);
             } else {
-                Cli.println(app.getWrongAnswerMessage(), r, round.getAnswer());
+                Cli.println(LocaleStrings.wrongAnswerMessage, r, round.getAnswer());
                 return false;
             }
 
         }
 
         return true;
+    }
+
+    private Boolean greet(Greeting game) {
+        final GameRound round = game.play();
+        String userName = Cli.read(round.getQuestion());
+        if (userName.length() > 0) {
+            game.setUserName(userName);
+            Cli.println(LocaleStrings.welcomeString, userName);
+        } else {
+            Cli.println(LocaleStrings.incognitoString, game.getUserName());
+        }
+        return null;
     }
 
     @Override

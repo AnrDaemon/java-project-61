@@ -2,7 +2,6 @@ package io.hexlet.code.games;
 
 import java.util.Random;
 
-import io.hexlet.code.App;
 import io.hexlet.code.GameInterface;
 import io.hexlet.code.GameRound;
 
@@ -12,7 +11,7 @@ public class GCD implements GameInterface {
 
     private Random rand;
 
-    public GCD(App app) {
+    public GCD() {
         this.rand = new Random();
     }
 

@@ -1,18 +1,23 @@
 package io.hexlet.code.games;
 
-import io.hexlet.code.App;
-import io.hexlet.code.Cli;
 import io.hexlet.code.GameInterface;
 import io.hexlet.code.GameRound;
+import io.hexlet.code.LocaleStrings;
 
 public class Greeting implements GameInterface {
 
     private final String name = "Introduction";
 
-    private App app;
+    private boolean firstRun = true;
 
-    public Greeting(App app) {
-        this.app = app;
+    private String userName = "stranger";
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getUserName() {
+        return this.userName;
     }
 
     @Override
@@ -22,21 +27,17 @@ public class Greeting implements GameInterface {
 
     @Override
     public String getRules() {
-        return null;
+        if (this.firstRun) {
+            this.firstRun = false;
+            return String.format(LocaleStrings.greeting, this.userName);
+        } else {
+            return null;
+        }
     }
 
     @Override
     public GameRound play() {
-        String userName = Cli.read(app.getNameRequest());
-        if (userName.length() > 0) {
-            app.setUserName(userName);
-        } else {
-            Cli.println("Too bad. I'll call you %s, then.", app.getUserName());
-        }
-
-        Cli.println(app.getWelcomeString(), app.getUserName());
-
-        return null;
+        return new GameRound(LocaleStrings.nameRequest, null);
     }
 
 }

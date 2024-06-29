@@ -2,7 +2,6 @@ package io.hexlet.code.games;
 
 import java.util.Random;
 
-import io.hexlet.code.App;
 import io.hexlet.code.GameInterface;
 import io.hexlet.code.GameRound;
 import io.hexlet.code.games.calculator.AdditionRound;
@@ -16,7 +15,7 @@ public class Calculator implements GameInterface {
 
     private Random rand;
 
-    public Calculator(App app) {
+    public Calculator() {
         this.rand = new Random();
     }
 

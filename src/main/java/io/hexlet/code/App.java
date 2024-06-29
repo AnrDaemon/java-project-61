@@ -9,76 +9,29 @@ import io.hexlet.code.games.Progression;
 
 public class App {
 
-    private String userName = "stranger";
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-    public String getUserName() {
-        return this.userName;
-    }
-
     public String getGreeting() {
-        return "Welcome to the Brain Games, %s!";
-    }
-
-    public String getParting() {
-        return "Goodbye, %s! Until we meet again…";
-    }
-
-    public String getNameRequest() {
-        return "May I have your name?";
-    }
-
-    public String getWelcomeString() {
-        return "Hello, %s! Glad to meet you!";
-    }
-
-    public String getSelectionPrompt() {
-        return "Please choose a game:";
-    }
-
-    public String getCorrectAnswerMessage() {
-        return "Correct!";
-    }
-
-    /**
-     * Provides a "wrong answer" reply template
-     *
-     * @return
-     */
-    public String getWrongAnswerMessage() {
-        return "'%s' was a wrong answer :`(. Correct answer was '%s'.";
-    }
-
-    public String getWinnerMessage() {
-        return "Congratulations, %s! Wanna play again?";
-    }
-
-    public String getLoserMessage() {
-        return "My condolence, but you lose. Good bye!";
+        // Placate tests
+        return LocaleStrings.greeting;
     }
 
     public void run() {
-        final Engine games = new Engine(this);
-        games.register(new Greeting(this));
-        games.register(new EvenOdd(this));
-        games.register(new Calculator(this));
-        games.register(new GCD(this));
-        games.register(new Progression(this));
-        games.register(new Primes(this));
-
-        Cli.println(this.getGreeting(), this.getUserName());
+        final Engine games = new Engine();
+        final Greeting gr = new Greeting();
+        games.register(gr);
+        games.register(new EvenOdd());
+        games.register(new Calculator());
+        games.register(new GCD());
+        games.register(new Progression());
+        games.register(new Primes());
 
         int n = 1;
         while (n > 0) {
             Boolean result = games.play(n);
             if (result != null) {
                 if (result) {
-                    Cli.println(this.getWinnerMessage(), this.getUserName());
+                    Cli.println(LocaleStrings.winnerMessage, gr.getUserName());
                 } else {
-                    Cli.println(this.getLoserMessage(), this.getUserName());
+                    Cli.println(LocaleStrings.loserMessage, gr.getUserName());
                     return;
                 }
             }
@@ -88,10 +41,10 @@ public class App {
             }
 
             Cli.println("%d. %s", 0, "Exit");
-            n = Integer.parseInt(Cli.read(this.getSelectionPrompt()));
+            n = Integer.parseInt(Cli.read(LocaleStrings.selectionPrompt));
         }
 
-        Cli.println(getParting(), this.getUserName());
+        Cli.println(LocaleStrings.parting, gr.getUserName());
     }
 
     public static void main(String[] args) {

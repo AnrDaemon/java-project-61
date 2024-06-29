@@ -1,9 +1,7 @@
 package io.hexlet.code.games;
 
-import java.util.Arrays;
 import java.util.Random;
 
-import io.hexlet.code.App;
 import io.hexlet.code.GameInterface;
 import io.hexlet.code.GameRound;
 
@@ -27,7 +25,7 @@ public class Primes implements GameInterface {
         }
     }
 
-    public Primes(App app) {
+    public Primes() {
         this.rand = new Random();
     }
 
