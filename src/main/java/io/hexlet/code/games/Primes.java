@@ -14,15 +14,7 @@ public class Primes implements GameInterface {
     private Random rand;
 
     static {
-        int i = 0;
-        set[i++] = 2;
-        for (int n = 3; n < 100; n = n + 2) {
-            if (!isPrime(n)) {
-                continue;
-            }
-
-            set[i++] = n;
-        }
+        initPrimes();
     }
 
     public Primes() {
@@ -50,6 +42,18 @@ public class Primes implements GameInterface {
         }
 
         return new GameRound(Integer.toString(n), "no");
+    }
+
+    public static void initPrimes() {
+        int i = 0;
+        set[i++] = 2;
+        for (int n = 3; n < 100; n = n + 2) {
+            if (!isPrime(n)) {
+                continue;
+            }
+
+            set[i++] = n;
+        }
     }
 
     private static Boolean isPrime(int n) {
