@@ -1,9 +1,7 @@
 package io.hexlet.code.games;
 
-import java.util.Arrays;
 import java.util.Random;
 
-import io.hexlet.code.App;
 import io.hexlet.code.GameInterface;
 import io.hexlet.code.GameRound;
 
@@ -16,18 +14,10 @@ public class Primes implements GameInterface {
     private Random rand;
 
     static {
-        int i = 0;
-        set[i++] = 2;
-        for (int n = 3; n < 100; n = n + 2) {
-            if (!isPrime(n)) {
-                continue;
-            }
-
-            set[i++] = n;
-        }
+        initPrimes();
     }
 
-    public Primes(App app) {
+    public Primes() {
         this.rand = new Random();
     }
 
@@ -52,6 +42,18 @@ public class Primes implements GameInterface {
         }
 
         return new GameRound(Integer.toString(n), "no");
+    }
+
+    public static void initPrimes() {
+        int i = 0;
+        set[i++] = 2;
+        for (int n = 3; n < 100; n = n + 2) {
+            if (!isPrime(n)) {
+                continue;
+            }
+
+            set[i++] = n;
+        }
     }
 
     private static Boolean isPrime(int n) {

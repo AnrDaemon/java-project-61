@@ -2,7 +2,6 @@ package io.hexlet.code.games;
 
 import java.util.Random;
 
-import io.hexlet.code.App;
 import io.hexlet.code.GameInterface;
 import io.hexlet.code.GameRound;
 
@@ -12,7 +11,7 @@ public class EvenOdd implements GameInterface {
 
     private Random rand;
 
-    public EvenOdd(App app) {
+    public EvenOdd() {
         this.rand = new Random();
     }
 
