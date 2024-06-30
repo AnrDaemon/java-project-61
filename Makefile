@@ -1,5 +1,5 @@
 
 run-dist:
-	./build/install/mind-games/bin/mind-games
+	./app/build/install/app/bin/app
 
 .PHONY: run-dist

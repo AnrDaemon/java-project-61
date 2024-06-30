@@ -1,2 +1,4 @@
 
-rootProject.name = "mind-games"
+rootProject.name = "app"
+
+include("app")
