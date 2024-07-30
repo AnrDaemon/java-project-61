@@ -24,8 +24,18 @@ public class App {
         games.register(new Progression());
         games.register(new Primes());
 
-        int n = 1;
-        while (n > 0) {
+        int n;
+        while (true) {
+            for (GameTitle g : games) {
+                Cli.println("%d. %s", g.idx, g.title);
+            }
+
+            Cli.println("%d. %s", 0, "Exit");
+
+            n = Integer.parseInt(Cli.read(LocaleStrings.selectionPrompt));
+            if (n == 0) {
+                break;
+            }
             Boolean result = games.play(n);
             if (result != null) {
                 if (result) {
@@ -35,13 +45,6 @@ public class App {
                     return;
                 }
             }
-
-            for (GameTitle g : games) {
-                Cli.println("%d. %s", g.idx, g.title);
-            }
-
-            Cli.println("%d. %s", 0, "Exit");
-            n = Integer.parseInt(Cli.read(LocaleStrings.selectionPrompt));
         }
 
         Cli.println(LocaleStrings.parting, gr.getUserName());
