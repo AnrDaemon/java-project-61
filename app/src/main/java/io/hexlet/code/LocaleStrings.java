@@ -2,7 +2,7 @@ package io.hexlet.code;
 
 public class LocaleStrings {
 
-    final static public String greeting = "Welcome to the Brain Games, %s!";
+    final static public String greeting = "Welcome to the Brain Games!";
 
     final static public String parting = "Goodbye, %s! Until we meet again…";
 
