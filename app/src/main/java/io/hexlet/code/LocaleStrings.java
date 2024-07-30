@@ -8,7 +8,7 @@ public class LocaleStrings {
 
     final static public String nameRequest = "May I have your name?";
 
-    final static public String welcomeString = "Hello, %s! Glad to meet you!";
+    final static public String welcomeString = "Hello, %s!";
 
     final static public String incognitoString = "Too bad. I'll call you %s, then.";
 

@@ -8,8 +8,6 @@ public class Greeting implements GameInterface {
 
     private final String name = "Introduction";
 
-    private boolean firstRun = true;
-
     private String userName = "stranger";
 
     public void setUserName(String userName) {
@@ -27,12 +25,7 @@ public class Greeting implements GameInterface {
 
     @Override
     public String getRules() {
-        if (this.firstRun) {
-            this.firstRun = false;
-            return String.format(LocaleStrings.greeting, this.userName);
-        } else {
-            return null;
-        }
+        return null;
     }
 
     @Override

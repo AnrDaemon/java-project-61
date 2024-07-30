@@ -24,6 +24,8 @@ public class App {
         games.register(new Progression());
         games.register(new Primes());
 
+        Cli.println(LocaleStrings.greeting);
+
         int n;
         while (true) {
             for (GameTitle g : games) {
