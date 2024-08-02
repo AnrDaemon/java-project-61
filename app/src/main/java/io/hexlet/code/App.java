@@ -24,7 +24,7 @@ public class App {
         games.register(new Progression());
         games.register(new Primes());
 
-        Cli.println(LocaleStrings.greeting);
+        Cli.println(gr.getRules());
 
         int n;
         while (true) {

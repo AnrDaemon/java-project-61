@@ -25,7 +25,7 @@ public class Greeting implements GameInterface {
 
     @Override
     public String getRules() {
-        return null;
+        return LocaleStrings.greeting;
     }
 
     @Override
