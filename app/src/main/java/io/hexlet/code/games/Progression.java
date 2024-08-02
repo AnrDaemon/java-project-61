@@ -29,7 +29,7 @@ public class Progression implements GameInterface {
     public GameRound play() {
         int n1 = rand.nextInt(20) + 1;
         int step = rand.nextInt(10) + 1;
-        int length = rand.nextInt(4, 8) + 1;
+        int length = 4 + rand.nextInt(5);
         int x = rand.nextInt(length);
         String a = Integer.toString(n1 + step * x);
         String q = "";
