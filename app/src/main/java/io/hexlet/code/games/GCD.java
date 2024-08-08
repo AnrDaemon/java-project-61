@@ -22,7 +22,7 @@ public class GCD implements GameInterface {
 
     @Override
     public String getRules() {
-        return "Find GCD (Greatest Common Divisor) of the two numbers and enter it.";
+        return "Find the greatest common divisor of given numbers.";
     }
 
     @Override
@@ -32,7 +32,7 @@ public class GCD implements GameInterface {
         Integer gcd = Math.min(op0, op1);
         op0 = Math.max(op0, op1);
         op1 = gcd;
-        final String q = String.format("%d and %d", op0, op1);
+        final String q = String.format("%d %d", op0, op1);
         while (op0 % gcd > 0) {
             op0 = op0 % gcd;
             gcd = Math.min(op0, op1);
