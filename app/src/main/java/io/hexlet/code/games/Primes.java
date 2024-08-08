@@ -5,9 +5,10 @@ import java.util.Random;
 import io.hexlet.code.GameInterface;
 import io.hexlet.code.GameRound;
 
+// CHECKSTYLE.OFF: MagicNumber
 public final class Primes implements GameInterface {
 
-    static private int[] set = new int[25];
+    private static int[] set = new int[25];
 
     private final String name = "Primes";
 
@@ -69,3 +70,4 @@ public final class Primes implements GameInterface {
         return true;
     }
 }
+// CHECKSTYLE.ON: MagicNumber

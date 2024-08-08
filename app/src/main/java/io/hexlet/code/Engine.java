@@ -14,11 +14,23 @@ public class Engine implements Iterable<GameTitle> {
         this.games.put(0, null);
     }
 
+    /**
+     * Adds a new game to the engine.
+     *
+     * @param game
+     * @return Chaining self-reference.
+     */
     public Engine register(GameInterface game) {
         this.games.put(games.size(), game);
         return this;
     }
 
+    /**
+     * Runs the main game loop for a specified game idx.
+     *
+     * @param idx The game no#.
+     * @return true on success, false otherwise. May also return null, if game is(was) not played.
+     */
     public Boolean play(int idx) {
         final GameInterface game = this.games.get(idx);
         if (game == null) {
@@ -63,6 +75,9 @@ public class Engine implements Iterable<GameTitle> {
         return null;
     }
 
+    /**
+     * Returns list of registered games.
+     */
     @Override
     public Iterator<GameTitle> iterator() {
         return new Iterator<GameTitle>() {
