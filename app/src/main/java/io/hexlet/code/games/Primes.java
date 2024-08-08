@@ -28,7 +28,7 @@ public class Primes implements GameInterface {
 
     @Override
     public String getRules() {
-        return "Determine if an odd number is Prime and answer 'yes' or 'no'.";
+        return "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
     }
 
     @Override
