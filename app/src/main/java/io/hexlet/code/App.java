@@ -26,26 +26,28 @@ public class App {
 
         Cli.println(gr.getRules());
 
-        int n;
-        while (true) {
-            for (GameTitle g : games) {
-                Cli.println("%d. %s", g.idx, g.title);
-            }
+        for (GameTitle g : games) {
+            Cli.println("%d. %s", g.idx, g.title);
+        }
 
-            Cli.println("%d. %s", 0, "Exit");
+        Cli.println("%d. %s", 0, "Exit");
 
-            n = Integer.parseInt(Cli.read(LocaleStrings.selectionPrompt));
-            if (n == 0) {
-                break;
-            }
-            Boolean result = games.play(n);
-            if (result != null) {
-                if (result) {
-                    Cli.println(LocaleStrings.winnerMessage, gr.getUserName());
-                } else {
-                    Cli.println(LocaleStrings.loserMessage, gr.getUserName());
-                    return;
-                }
+        int n = Integer.parseInt(Cli.read(LocaleStrings.selectionPrompt));
+        if (n == 0) {
+            return;
+        }
+
+        if (n > 1) {
+            games.play(1);
+        }
+
+        Boolean result = games.play(n);
+        if (result != null) {
+            if (result) {
+                Cli.println(LocaleStrings.winnerMessage, gr.getUserName());
+            } else {
+                Cli.println(LocaleStrings.loserMessage, gr.getUserName());
+                return;
             }
         }
 

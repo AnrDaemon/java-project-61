@@ -25,7 +25,7 @@ public class LocaleStrings {
      */
     final static public String wrongAnswerMessage = "'%s' was a wrong answer :`(. Correct answer was '%s'.";
 
-    final static public String winnerMessage = "Congratulations, %s! Wanna play again?";
+    final static public String winnerMessage = "Congratulations, %s!";
 
     final static public String loserMessage = "My condolence, but you lose. Good bye!";
 
