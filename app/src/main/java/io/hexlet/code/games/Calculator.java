@@ -33,7 +33,7 @@ public class Calculator implements GameInterface {
     public GameRound play() {
         int op0 = rand.nextInt(50) + 1;
         int op1 = rand.nextInt(50) + 1;
-        int op = rand.nextInt(4);
+        int op = rand.nextInt(3);
 
         switch (op) {
             case 0: // Addition
