@@ -27,6 +27,6 @@ public class LocaleStrings {
 
     final static public String winnerMessage = "Congratulations, %s!";
 
-    final static public String loserMessage = "My condolence, but you lose. Good bye!";
+    final static public String loserMessage = "Let's try again, %s!";
 
 }
