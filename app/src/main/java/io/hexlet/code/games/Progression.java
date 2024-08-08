@@ -5,7 +5,7 @@ import java.util.Random;
 import io.hexlet.code.GameInterface;
 import io.hexlet.code.GameRound;
 
-public class Progression implements GameInterface {
+public final class Progression implements GameInterface {
 
     private final String name = "Progression";
 
@@ -22,14 +22,14 @@ public class Progression implements GameInterface {
 
     @Override
     public String getRules() {
-        return "Determine and enter the missing member of arithmetic progression.";
+        return "What number is missing in the progression?";
     }
 
     @Override
     public GameRound play() {
         int n1 = rand.nextInt(20) + 1;
         int step = rand.nextInt(10) + 1;
-        int length = rand.nextInt(4, 8) + 1;
+        int length = 5 + rand.nextInt(4);
         int x = rand.nextInt(length);
         String a = Integer.toString(n1 + step * x);
         String q = "";

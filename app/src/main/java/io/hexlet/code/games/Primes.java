@@ -5,7 +5,8 @@ import java.util.Random;
 import io.hexlet.code.GameInterface;
 import io.hexlet.code.GameRound;
 
-public class Primes implements GameInterface {
+@SuppressWarnings("checkstyle:magicnumber")
+public final class Primes implements GameInterface {
 
     private static int[] set = new int[25];
 
@@ -28,7 +29,7 @@ public class Primes implements GameInterface {
 
     @Override
     public String getRules() {
-        return "Determine if an odd number is Prime and answer 'yes' or 'no'.";
+        return "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
     }
 
     @Override

@@ -9,7 +9,8 @@ import io.hexlet.code.games.calculator.ModulusRound;
 import io.hexlet.code.games.calculator.MultiplicationRound;
 import io.hexlet.code.games.calculator.SubtractionRound;
 
-public class Calculator implements GameInterface {
+@SuppressWarnings("checkstyle:magicnumber")
+public final class Calculator implements GameInterface {
 
     private final String name = "Calculator";
 
@@ -26,14 +27,14 @@ public class Calculator implements GameInterface {
 
     @Override
     public String getRules() {
-        return "Solve arithmetic primer and enter the result.";
+        return "What is the result of the expression?";
     }
 
     @Override
     public GameRound play() {
         int op0 = rand.nextInt(50) + 1;
         int op1 = rand.nextInt(50) + 1;
-        int op = rand.nextInt(4);
+        int op = rand.nextInt(3);
 
         switch (op) {
             case 0: // Addition

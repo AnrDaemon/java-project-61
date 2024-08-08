@@ -5,7 +5,7 @@ import java.util.Random;
 import io.hexlet.code.GameInterface;
 import io.hexlet.code.GameRound;
 
-public class EvenOdd implements GameInterface {
+public final class EvenOdd implements GameInterface {
 
     private final String name = "Even/Odd";
 
