@@ -5,6 +5,7 @@ import java.util.Iterator;
 
 import io.hexlet.code.games.Greeting;
 
+@SuppressWarnings("checkstyle:magicnumber")
 public class Engine implements Iterable<GameTitle> {
 
     private HashMap<Integer, GameInterface> games;

@@ -9,7 +9,7 @@ import io.hexlet.code.games.calculator.ModulusRound;
 import io.hexlet.code.games.calculator.MultiplicationRound;
 import io.hexlet.code.games.calculator.SubtractionRound;
 
-// CHECKSTYLE.OFF: MagicNumber
+@SuppressWarnings("checkstyle:magicnumber")
 public final class Calculator implements GameInterface {
 
     private final String name = "Calculator";
@@ -55,4 +55,3 @@ public final class Calculator implements GameInterface {
     }
 
 }
-// CHECKSTYLE.ON: MagicNumber
