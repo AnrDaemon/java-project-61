@@ -37,12 +37,12 @@ public class Engine implements Iterable<GameTitle> {
 
         for (int i = 0; i < 3; i++) {
             final GameRound round = game.play();
-            Cli.println(LocaleStrings.roundQuestion, round.getQuestion());
-            String r = Cli.read(LocaleStrings.roundAnswer);
+            Cli.println(LocaleStrings.ROUND_QUESTION, round.getQuestion());
+            String r = Cli.read(LocaleStrings.ROUND_ANSWER);
             if (round.getAnswer().equals(r)) {
-                Cli.println(LocaleStrings.correctAnswerMessage);
+                Cli.println(LocaleStrings.CORRECT_ANSWER_MESSAGE);
             } else {
-                Cli.println(LocaleStrings.wrongAnswerMessage, r, round.getAnswer());
+                Cli.println(LocaleStrings.WRONG_ANSWER_MESSAGE, r, round.getAnswer());
                 return false;
             }
 
@@ -56,9 +56,9 @@ public class Engine implements Iterable<GameTitle> {
         String userName = Cli.read(round.getQuestion());
         if (userName.length() > 0) {
             game.setUserName(userName);
-            Cli.println(LocaleStrings.welcomeString, userName);
+            Cli.println(LocaleStrings.WELCOME_STRING, userName);
         } else {
-            Cli.println(LocaleStrings.incognitoString, game.getUserName());
+            Cli.println(LocaleStrings.INCOGNITO_STRING, game.getUserName());
         }
         return null;
     }

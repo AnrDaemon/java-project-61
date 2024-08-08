@@ -5,7 +5,7 @@ import java.util.Random;
 import io.hexlet.code.GameInterface;
 import io.hexlet.code.GameRound;
 
-public class GCD implements GameInterface {
+public final class GCD implements GameInterface {
 
     private final String name = "GCD";
 

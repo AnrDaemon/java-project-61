@@ -2,31 +2,31 @@ package io.hexlet.code;
 
 public class LocaleStrings {
 
-    final static public String greeting = "Welcome to the Brain Games!";
+    public static final String GREETING = "Welcome to the Brain Games!";
 
-    final static public String parting = "Goodbye, %s! Until we meet again…";
+    public static final String PARTING = "Goodbye, %s! Until we meet again…";
 
-    final static public String nameRequest = "May I have your name?";
+    public static final String NAME_REQUEST = "May I have your name?";
 
-    final static public String welcomeString = "Hello, %s!";
+    public static final String WELCOME_STRING = "Hello, %s!";
 
-    final static public String incognitoString = "Too bad. I'll call you %s, then.";
+    public static final String INCOGNITO_STRING = "Too bad. I'll call you %s, then.";
 
-    final static public String selectionPrompt = "Please choose a game:";
+    public static final String SELECTION_PROMPT = "Please choose a game:";
 
-    final static public String roundQuestion = "Question: %s";
+    public static final String ROUND_QUESTION = "Question: %s";
 
-    final static public String roundAnswer = "Answer:";
+    public static final String ROUND_ANSWER = "Answer:";
 
-    final static public String correctAnswerMessage = "Correct!";
+    public static final String CORRECT_ANSWER_MESSAGE = "Correct!";
 
     /**
-     * A "wrong answer" reply template
+     * A "wrong answer" reply template.
      */
-    final static public String wrongAnswerMessage = "'%s' was a wrong answer :`(. Correct answer was '%s'.";
+    public static final String WRONG_ANSWER_MESSAGE = "'%s' was a wrong answer :`(. Correct answer was '%s'.";
 
-    final static public String winnerMessage = "Congratulations, %s!";
+    public static final String WINNER_MESSAGE = "Congratulations, %s!";
 
-    final static public String loserMessage = "Let's try again, %s!";
+    public static final String LOSER_MESSAGE = "Let's try again, %s!";
 
 }

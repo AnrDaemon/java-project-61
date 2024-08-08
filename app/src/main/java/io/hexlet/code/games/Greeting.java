@@ -4,7 +4,7 @@ import io.hexlet.code.GameInterface;
 import io.hexlet.code.GameRound;
 import io.hexlet.code.LocaleStrings;
 
-public class Greeting implements GameInterface {
+public final class Greeting implements GameInterface {
 
     private final String name = "Introduction";
 
@@ -25,12 +25,12 @@ public class Greeting implements GameInterface {
 
     @Override
     public String getRules() {
-        return LocaleStrings.greeting;
+        return LocaleStrings.GREETING;
     }
 
     @Override
     public GameRound play() {
-        return new GameRound(LocaleStrings.nameRequest, null);
+        return new GameRound(LocaleStrings.NAME_REQUEST, null);
     }
 
 }

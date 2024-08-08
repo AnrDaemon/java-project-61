@@ -5,7 +5,7 @@ import java.util.Random;
 import io.hexlet.code.GameInterface;
 import io.hexlet.code.GameRound;
 
-public class Progression implements GameInterface {
+public final class Progression implements GameInterface {
 
     private final String name = "Progression";
 

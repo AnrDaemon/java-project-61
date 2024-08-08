@@ -5,9 +5,9 @@ import java.util.Random;
 import io.hexlet.code.GameInterface;
 import io.hexlet.code.GameRound;
 
-public class Primes implements GameInterface {
+public final class Primes implements GameInterface {
 
-    private static int[] set = new int[25];
+    static private int[] set = new int[25];
 
     private final String name = "Primes";
 

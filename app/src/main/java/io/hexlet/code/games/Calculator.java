@@ -9,7 +9,7 @@ import io.hexlet.code.games.calculator.ModulusRound;
 import io.hexlet.code.games.calculator.MultiplicationRound;
 import io.hexlet.code.games.calculator.SubtractionRound;
 
-public class Calculator implements GameInterface {
+public final class Calculator implements GameInterface {
 
     private final String name = "Calculator";
 
