@@ -26,7 +26,7 @@ public class Calculator implements GameInterface {
 
     @Override
     public String getRules() {
-        return "Solve arithmetic primer and enter the result.";
+        return "What is the result of the expression?";
     }
 
     @Override
