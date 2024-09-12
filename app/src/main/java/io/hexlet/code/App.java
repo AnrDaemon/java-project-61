@@ -27,7 +27,7 @@ public final class App {
         Cli.println(gr.getRules());
 
         for (GameTitle g : games) {
-            Cli.println("%d. %s", g.idx, g.title);
+            Cli.println("%d. %s", g.getIdx(), g.getTitle());
         }
 
         Cli.println("%d. %s", 0, "Exit");
