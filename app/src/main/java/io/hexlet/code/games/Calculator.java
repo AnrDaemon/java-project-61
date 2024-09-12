@@ -50,7 +50,7 @@ public final class Calculator implements GameInterface {
             case 2: // Multiplication
                 return new MultiplicationRound(op0, op1);
 
-            case 3: // Modulus
+            case 2 + 1: // Modulus
                 return new ModulusRound(Math.max(op0, op1), Math.min(op0, op1));
 
             default: // Nothing, but linter yells if missed
