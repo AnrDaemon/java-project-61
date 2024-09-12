@@ -10,8 +10,8 @@ public final class Greeting implements GameInterface {
 
     private String userName = "stranger";
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUserName(String u) {
+        this.userName = u;
     }
 
     public String getUserName() {
