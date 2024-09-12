@@ -9,6 +9,8 @@ public final class EvenOdd implements GameInterface {
 
     private final String name = "Even/Odd";
 
+    private final int rangeMax = 100;
+
     private Random rand;
 
     public EvenOdd() {
@@ -30,7 +32,7 @@ public final class EvenOdd implements GameInterface {
         Integer q;
         String a;
 
-        q = 1 + Math.abs(rand.nextInt(100));
+        q = 1 + Math.abs(rand.nextInt(rangeMax));
         a = (q % 2 > 0) ? "no" : "yes";
 
         return new GameRound(q.toString(), a);

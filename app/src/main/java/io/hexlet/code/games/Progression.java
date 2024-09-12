@@ -9,6 +9,11 @@ public final class Progression implements GameInterface {
 
     private final String name = "Progression";
 
+    private final int rangeMax = 20;
+    private final int stepMax = 10;
+    private final int itemsMin = 5;
+    private final int itemsMax = 9;
+
     private Random rand;
 
     public Progression() {
@@ -27,9 +32,9 @@ public final class Progression implements GameInterface {
 
     @Override
     public GameRound play() {
-        int n1 = rand.nextInt(20) + 1;
-        int step = rand.nextInt(10) + 1;
-        int length = 5 + rand.nextInt(4);
+        int n1 = rand.nextInt(rangeMax) + 1;
+        int step = rand.nextInt(stepMax) + 1;
+        int length = itemsMin + rand.nextInt(itemsMax - itemsMin);
         int x = rand.nextInt(length);
         String a = Integer.toString(n1 + step * x);
         String q = "";

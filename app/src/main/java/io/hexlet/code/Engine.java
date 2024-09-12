@@ -8,6 +8,8 @@ import io.hexlet.code.games.Greeting;
 @SuppressWarnings("checkstyle:magicnumber")
 public class Engine implements Iterable<GameTitle> {
 
+    private final int numRounds = 3;
+
     private HashMap<Integer, GameInterface> games;
 
     public Engine() {
@@ -48,7 +50,7 @@ public class Engine implements Iterable<GameTitle> {
             return this.greet((Greeting) game);
         }
 
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < numRounds; i++) {
             final GameRound round = game.play();
             Cli.println(LocaleStrings.ROUND_QUESTION, round.getQuestion());
             String r = Cli.read(LocaleStrings.ROUND_ANSWER);

@@ -9,6 +9,8 @@ public final class GCD implements GameInterface {
 
     private final String name = "GCD";
 
+    private final int rangeMax = 50;
+
     private Random rand;
 
     public GCD() {
@@ -27,8 +29,8 @@ public final class GCD implements GameInterface {
 
     @Override
     public GameRound play() {
-        int op0 = rand.nextInt(50) + 1;
-        int op1 = rand.nextInt(50) + 1;
+        int op0 = rand.nextInt(rangeMax) + 1;
+        int op1 = rand.nextInt(rangeMax) + 1;
         Integer gcd = Math.min(op0, op1);
         op0 = Math.max(op0, op1);
         op1 = gcd;

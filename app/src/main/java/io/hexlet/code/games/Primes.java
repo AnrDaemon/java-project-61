@@ -8,9 +8,12 @@ import io.hexlet.code.GameRound;
 @SuppressWarnings("checkstyle:magicnumber")
 public final class Primes implements GameInterface {
 
-    private static int[] set = new int[25];
+    private final static int numPrimes = 25;
+    private static int[] set = new int[numPrimes];
 
     private final String name = "Primes";
+
+    private final static int rangeMax = 100;
 
     private Random rand;
 
@@ -34,7 +37,7 @@ public final class Primes implements GameInterface {
 
     @Override
     public GameRound play() {
-        Integer n = 2 * rand.nextInt(50) + 1;
+        Integer n = 2 * rand.nextInt(rangeMax / 2) + 1;
         final int length = set.length;
         for (int i = 0; i < length && set[i] > 0; i++) {
             if (n == set[i]) {
@@ -48,7 +51,7 @@ public final class Primes implements GameInterface {
     public static void initPrimes() {
         int i = 0;
         set[i++] = 2;
-        for (int n = 3; n < 100; n = n + 2) {
+        for (int n = 2 + 1; n < rangeMax; n = n + 2) {
             if (!isPrime(n)) {
                 continue;
             }

@@ -14,6 +14,10 @@ public final class Calculator implements GameInterface {
 
     private final String name = "Calculator";
 
+    private final int rangeMax = 50;
+
+    private final int numOps = 3;
+
     private Random rand;
 
     public Calculator() {
@@ -32,9 +36,9 @@ public final class Calculator implements GameInterface {
 
     @Override
     public GameRound play() {
-        int op0 = rand.nextInt(50) + 1;
-        int op1 = rand.nextInt(50) + 1;
-        int op = rand.nextInt(3);
+        int op0 = rand.nextInt(rangeMax) + 1;
+        int op1 = rand.nextInt(rangeMax) + 1;
+        int op = rand.nextInt(numOps);
 
         switch (op) {
             case 0: // Addition
