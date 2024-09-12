@@ -7,11 +7,11 @@ import io.hexlet.code.games.Greeting;
 import io.hexlet.code.games.Primes;
 import io.hexlet.code.games.Progression;
 
-public class App {
+public final class App {
 
     public String getGreeting() {
         // Placate tests
-        return LocaleStrings.greeting;
+        return LocaleStrings.GREETING;
     }
 
     public void run() {
@@ -24,32 +24,34 @@ public class App {
         games.register(new Progression());
         games.register(new Primes());
 
-        Cli.println(LocaleStrings.greeting);
+        Cli.println(gr.getRules());
 
-        int n;
-        while (true) {
-            for (GameTitle g : games) {
-                Cli.println("%d. %s", g.idx, g.title);
-            }
+        for (GameTitle g : games) {
+            Cli.println("%d. %s", g.getIdx(), g.getTitle());
+        }
 
-            Cli.println("%d. %s", 0, "Exit");
+        Cli.println("%d. %s", 0, "Exit");
 
-            n = Integer.parseInt(Cli.read(LocaleStrings.selectionPrompt));
-            if (n == 0) {
-                break;
-            }
-            Boolean result = games.play(n);
-            if (result != null) {
-                if (result) {
-                    Cli.println(LocaleStrings.winnerMessage, gr.getUserName());
-                } else {
-                    Cli.println(LocaleStrings.loserMessage, gr.getUserName());
-                    return;
-                }
+        int n = Integer.parseInt(Cli.read(LocaleStrings.SELECTION_PROMPT));
+        if (n == 0) {
+            return;
+        }
+
+        if (n > 1) {
+            games.play(1);
+        }
+
+        Boolean result = games.play(n);
+        if (result != null) {
+            if (result) {
+                Cli.println(LocaleStrings.WINNER_MESSAGE, gr.getUserName());
+            } else {
+                Cli.println(LocaleStrings.LOSER_MESSAGE, gr.getUserName());
+                return;
             }
         }
 
-        Cli.println(LocaleStrings.parting, gr.getUserName());
+        Cli.println(LocaleStrings.PARTING, gr.getUserName());
     }
 
     public static void main(String[] args) {

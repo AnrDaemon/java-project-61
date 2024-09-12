@@ -5,7 +5,10 @@ import java.util.Iterator;
 
 import io.hexlet.code.games.Greeting;
 
+@SuppressWarnings("checkstyle:magicnumber")
 public class Engine implements Iterable<GameTitle> {
+
+    private final int numRounds = 3;
 
     private HashMap<Integer, GameInterface> games;
 
@@ -14,11 +17,23 @@ public class Engine implements Iterable<GameTitle> {
         this.games.put(0, null);
     }
 
+    /**
+     * Adds a new game to the engine.
+     *
+     * @param game
+     * @return Chaining self-reference.
+     */
     public Engine register(GameInterface game) {
         this.games.put(games.size(), game);
         return this;
     }
 
+    /**
+     * Runs the main game loop for a specified game idx.
+     *
+     * @param idx The game no#.
+     * @return true on success, false otherwise. May also return null, if game is(was) not played.
+     */
     public Boolean play(int idx) {
         final GameInterface game = this.games.get(idx);
         if (game == null) {
@@ -35,14 +50,14 @@ public class Engine implements Iterable<GameTitle> {
             return this.greet((Greeting) game);
         }
 
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < numRounds; i++) {
             final GameRound round = game.play();
-            Cli.println(LocaleStrings.roundQuestion, round.getQuestion());
-            String r = Cli.read(LocaleStrings.roundAnswer);
+            Cli.println(LocaleStrings.ROUND_QUESTION, round.getQuestion());
+            String r = Cli.read(LocaleStrings.ROUND_ANSWER);
             if (round.getAnswer().equals(r)) {
-                Cli.println(LocaleStrings.correctAnswerMessage);
+                Cli.println(LocaleStrings.CORRECT_ANSWER_MESSAGE);
             } else {
-                Cli.println(LocaleStrings.wrongAnswerMessage, r, round.getAnswer());
+                Cli.println(LocaleStrings.WRONG_ANSWER_MESSAGE, r, round.getAnswer());
                 return false;
             }
 
@@ -56,13 +71,16 @@ public class Engine implements Iterable<GameTitle> {
         String userName = Cli.read(round.getQuestion());
         if (userName.length() > 0) {
             game.setUserName(userName);
-            Cli.println(LocaleStrings.welcomeString, userName);
+            Cli.println(LocaleStrings.WELCOME_STRING, userName);
         } else {
-            Cli.println(LocaleStrings.incognitoString, game.getUserName());
+            Cli.println(LocaleStrings.INCOGNITO_STRING, game.getUserName());
         }
         return null;
     }
 
+    /**
+     * Returns list of registered games.
+     */
     @Override
     public Iterator<GameTitle> iterator() {
         return new Iterator<GameTitle>() {

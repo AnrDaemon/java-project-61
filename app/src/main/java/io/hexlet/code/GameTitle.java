@@ -2,16 +2,25 @@ package io.hexlet.code;
 
 public class GameTitle {
 
-    public int idx;
-    public String title;
+    private int idx;
 
-    public GameTitle(int idx, String title) {
-        this.idx = idx;
-        this.title = title;
+    public final int getIdx() {
+        return idx;
     }
 
-    public GameTitle(int idx, GameInterface game) {
-        this.idx = idx;
+    private String title;
+
+    public final String getTitle() {
+        return title;
+    }
+
+    public GameTitle(int gameIndex, String gameTitle) {
+        this.idx = gameIndex;
+        this.title = gameTitle;
+    }
+
+    public GameTitle(int gameIndex, GameInterface game) {
+        this.idx = gameIndex;
         this.title = game.getName();
     }
 }

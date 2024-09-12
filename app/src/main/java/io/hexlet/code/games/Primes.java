@@ -5,11 +5,15 @@ import java.util.Random;
 import io.hexlet.code.GameInterface;
 import io.hexlet.code.GameRound;
 
-public class Primes implements GameInterface {
+@SuppressWarnings("checkstyle:magicnumber")
+public final class Primes implements GameInterface {
 
-    private static int[] set = new int[25];
+    private static final int NUM_PRIMES = 25;
+    private static int[] set = new int[NUM_PRIMES];
 
     private final String name = "Primes";
+
+    private static final int RANGE_MAX = 100;
 
     private Random rand;
 
@@ -28,12 +32,12 @@ public class Primes implements GameInterface {
 
     @Override
     public String getRules() {
-        return "Determine if an odd number is Prime and answer 'yes' or 'no'.";
+        return "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
     }
 
     @Override
     public GameRound play() {
-        Integer n = 2 * rand.nextInt(50) + 1;
+        Integer n = 2 * rand.nextInt(RANGE_MAX / 2) + 1;
         final int length = set.length;
         for (int i = 0; i < length && set[i] > 0; i++) {
             if (n == set[i]) {
@@ -47,7 +51,7 @@ public class Primes implements GameInterface {
     public static void initPrimes() {
         int i = 0;
         set[i++] = 2;
-        for (int n = 3; n < 100; n = n + 2) {
+        for (int n = 2 + 1; n < RANGE_MAX; n = n + 2) {
             if (!isPrime(n)) {
                 continue;
             }
